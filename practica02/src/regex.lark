@@ -1,0 +1,44 @@
+// Palabras reservadas 
+TRUE.2: /true(?![A-Za-z0-9_])/
+FALSE.2: /false(?![A-Za-z0-9_])/
+SKIP.2: /skip(?![A-Za-z0-9_])/
+IF.2: /if(?![A-Za-z0-9_])/
+THEN.2: /then(?![A-Za-z0-9_])/
+ELSE.2: /else(?![A-Za-z0-9_])/
+WHILE.2: /while(?![A-Za-z0-9_])/
+DO.2: /do(?![A-Za-z0-9_])/
+INT.2: /int(?![A-Za-z0-9_])/
+BOOL.2: /bool(?![A-Za-z0-9_])/
+PRINT.2: /print(?![A-Za-z0-9_])/
+FOR.2: /for(?![A-Za-z0-9_])/
+
+// Operadores compuestos (mayor prioridad que los de un carácter)
+INC.2: "++"
+DEC.2: "--"
+ASSIGN.2: ":="
+LE.2: "<="
+AND.2: "&&"
+OR.2: "||"
+
+// Operadores y delimitadores simples
+PLUS: "+"
+MINUS: "-"
+TIMES: "*"
+EQ: "="
+NOT: "!"
+SEMI: ";"
+LPAR: "("
+RPAR: ")"
+LBRACE: "{"
+RBRACE: "}"
+
+// Literales e identificadores
+NUM: /[0-9]+/
+LOC: /[A-Za-z_][A-Za-z0-9_]*/
+
+// Comentarios y espacios ignorados
+COMMENT: /\/\/[^\r\n]*/
+WS: /[ \t\r\n]+/
+
+%ignore COMMENT
+%ignore WS

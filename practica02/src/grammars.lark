@@ -1,0 +1,48 @@
+%declare NUM LOC TRUE FALSE SKIP IF THEN ELSE WHILE DO
+%declare PLUS MINUS TIMES EQ LE NOT AND OR ASSIGN SEMI LPAR RPAR
+%declare LBRACE RBRACE
+%declare INT BOOL PRINT FOR INC DEC
+
+programa: declaracion* sentencia+
+
+declaracion: tipo LOC ASSIGN expresion SEMI
+
+?tipo: INT -> tipo_int
+     | BOOL -> tipo_bool
+
+sentencia: SKIP SEMI -> omitir
+         | asignacion SEMI
+         | incremento SEMI
+         | decremento SEMI
+         | impresion SEMI
+         | IF expresion THEN bloque ELSE bloque -> condicional
+         | WHILE expresion DO bloque -> mientras
+         | ciclo_for
+         | bloque
+
+bloque: LBRACE declaracion* sentencia* RBRACE
+
+asignacion: LOC ASSIGN expresion
+incremento: LOC INC
+decremento: LOC DEC
+impresion: PRINT LPAR expresion RPAR
+ciclo_for: FOR LPAR asignacion SEMI expresion SEMI actualizacion RPAR bloque
+
+actualizacion: asignacion
+             | incremento
+             | decremento
+
+?expresion: NUM -> numero
+          | LOC -> variable
+          | TRUE -> verdadero
+          | FALSE -> falso
+          | LPAR expresion PLUS expresion RPAR -> suma
+          | LPAR expresion MINUS expresion RPAR -> resta
+          | LPAR expresion TIMES expresion RPAR -> multiplicacion
+          | LPAR expresion EQ expresion RPAR -> igualdad
+          | LPAR expresion LE expresion RPAR -> menor_igual
+          | LPAR NOT expresion RPAR -> negacion
+          | LPAR MINUS expresion RPAR -> negativo
+          | LPAR expresion AND expresion RPAR -> conjuncion
+          | LPAR expresion OR expresion RPAR -> disyuncion
+          | LPAR expresion RPAR -> parentesis
