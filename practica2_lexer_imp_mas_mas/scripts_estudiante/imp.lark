@@ -1,0 +1,44 @@
+// Analizador léxico funcional para el IMP básico de Winskel extendido a IMP++.
+// Conserva los nombres de token: serán la interfaz con el parser.
+
+// Palabras reservadas de IMP e IMP++. La prioridad evita que se clasifiquen como LOC.
+// Se actualizó el límite léxico con '_' para compatibilidad con los nuevos identificadores.
+TRUE.2: /true(?![A-Za-z0-9_])/
+FALSE.2: /false(?![A-Za-z0-9_])/
+SKIP.2: /skip(?![A-Za-z0-9_])/
+IF.2: /if(?![A-Za-z0-9_])/
+THEN.2: /then(?![A-Za-z0-9_])/
+ELSE.2: /else(?![A-Za-z0-9_])/
+WHILE.2: /while(?![A-Za-z0-9_])/
+DO.2: /do(?![A-Za-z0-9_])/
+INT.2: /int(?![A-Za-z0-9_])/
+BOOL.2: /bool(?![A-Za-z0-9_])/
+PRINT.2: /print(?![A-Za-z0-9_])/
+FOR.2: /for(?![A-Za-z0-9_])/
+
+// Datos de IMP++.
+NUM: /[0-9]+/
+LOC: /[A-Za-z][A-Za-z0-9_]*/
+COMMENT: /\/\/[^\n]*/
+%ignore COMMENT
+
+// Operadores y delimitadores de IMP e IMP++.
+ASSIGN: ":="
+LE: "<="
+AND: "&&"
+OR: "||"
+INC: "++"
+DEC: "--"
+PLUS: "+"
+MINUS: "-"
+TIMES: "*"
+EQ: "="
+NOT: "!"
+SEMI: ";"
+LPAR: "("
+RPAR: ")"
+LBRACE: "{"
+RBRACE: "}"
+
+%import common.WS
+%ignore WS
