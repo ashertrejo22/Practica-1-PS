@@ -11,7 +11,7 @@ Se trabaja en equipos de una a tres personas.
 - Nombre del equipo: Equipo JASA
 - Integrantes y usuarios de GitHub:
 - Asher Santiago Trejo Olivares (Ashes23)
-- Enlace al repositorio privado: https://github.com/ashertrejo22/Practica-1-PS.git
+- Enlace al repositorio privado: https://github.com/ashertrejo22/Practicas-PS.git
 - Estado de la invitación a `manu-msr`: pendiente
 
 ## Preparación
